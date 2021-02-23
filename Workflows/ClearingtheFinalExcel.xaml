@@ -68,7 +68,6 @@
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Sequence sap2010:Annotation.AnnotationText="Clears the Final excel file before rerun&#xA;* Input : final excel Filepath&#xA;*OutPut : Empty, Final excelfile is deleted if exists" DisplayName="Clearing the Final Excel" sap:VirtualizedContainerService.HintSize="524.8,516" sap2010:WorkflowViewState.IdRef="Sequence_1">
@@ -83,12 +82,8 @@
     </sap:WorkflowViewStateService.ViewState>
     <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke CheckingFinalFileExists workflow" sap:VirtualizedContainerService.HintSize="483.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Workflows\Shared\CheckingFinalFileExists.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="in_FinalFilePath">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_FinalFilePath" />
-        </InArgument>
-        <OutArgument x:TypeArguments="x:Boolean" x:Key="out_isFileExists">
-          <mva:VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="isFileExists" />
-        </OutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_FinalFilePath">[in_FinalFilePath]</InArgument>
+        <OutArgument x:TypeArguments="x:Boolean" x:Key="out_isFileExists">[isFileExists]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <If Condition="[isFileExists]" DisplayName="If - file exists delete the file" sap:VirtualizedContainerService.HintSize="483.2,209.6" sap2010:WorkflowViewState.IdRef="If_1">
